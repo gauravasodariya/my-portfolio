@@ -65,6 +65,7 @@ function App() {
     "Vercel",
     "OpenAI/Gemini APIs",
     "NLP Basics",
+    "LLM",
     "DSA, OS, DBMS, CN",
   ];
 
@@ -90,17 +91,25 @@ function App() {
       description:
         "Created a finance/account management app focused on clear tracking flows and practical dashboards for day-to-day money operations.",
       stack: ["React.js", "Node.js", "Express.js", "MongoDB"],
-      demoUrl: "https://krux-financee.vercel.app/",
+      demoUrl: "",
       codeUrl: "https://github.com/gauravasodariya/Account-Manager",
     },
     {
+      title: "MockHire AI",
+      description:
+        "Built a full-stack AI mock interview platform using GPT-4o-mini for dynamic questions and resume-based feedback, with Google authentication, Razorpay credit system, AWS S3 resume storage, and an admin dashboard for managing users and plans.",
+      stack: ["React", "Node.js", "Express.js", "MongoDB", "OpenRouter API", "AWS S3", "Razorpay"],
+      demoUrl: "https://mock-hire-ai-sigma.vercel.app/",
+      codeUrl: "https://github.com/gauravasodariya/MockHire-AI",
+},
+    {
       title: "RankIntel",
       description:
-        "Built an analytics-focused product with ranking intelligence workflows and a backend-ready architecture for future production scaling.",
-      stack: ["React.js", "Node.js", "Analytics", "REST APIs"],
+        "Built an AI-powered SEO audit platform delivering instant site health scores, keyword and on-page analysis, Core Web Vitals monitoring,   and competitor comparisons — with trend-based audit history and downloadable PDF reports.",
+      stack: ["React 19", "TypeScript", "Node.js", "Express.js", "MongoDB", "Gemini API"],
       demoUrl: "",
       codeUrl: "https://github.com/gauravasodariya/RankIntel",
-    },
+},
   ];
 
   const experience = [
@@ -177,7 +186,6 @@ function App() {
       setIsInitialLoad(false);
       return;
     }
-
     const section = document.getElementById(sectionId);
 
     if (section) {
@@ -189,7 +197,17 @@ function App() {
     // Ensure we start at the absolute top on initial page load
     window.scrollTo(0, 0);
   }, []);
+  useEffect(() => {
+  if (showResumeModal) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
 
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, [showResumeModal]);
   useEffect(() => {
     let index = 0;
     setTypedName("");
@@ -300,11 +318,10 @@ function App() {
             transition={{ duration: 0.55, delay: 0.18, ease: "easeOut" }}
           >
             <div className="relative mx-auto w-fit">
-              <div className="avatar-ring absolute -inset-3 rounded-full" />
               <motion.img
-                src="/PHOTO.jpg"
+                src="/image-1.png"
                 alt="Portrait"
-                className="relative h-64 w-64 rounded-full border-4 border-white/20 object-cover shadow-2xl shadow-[#8B5CF6]/35 sm:h-80 sm:w-80"
+                className="relative h-64 w-64 rounded-full border-4 border-white/20 object-cover sm:h-80 sm:w-80"
                 animate={{ y: [0, -6, 0] }}
                 transition={{
                   duration: 4.8,
@@ -575,7 +592,7 @@ function App() {
             <div className="p-0 flex flex-col h-[calc(100vh-60px)]">
               <div className="flex-1 w-full overflow-hidden bg-white/5">
                 <iframe
-                  src="/Gaurav_Asodariya_Resume.pdf#toolbar=1&navpanes=1&scrollbar=1"
+                  src="/Gaurav_Asodariya_Resume.pdf"
                   className="w-full h-full"
                   title="Resume"
                 />
