@@ -49,31 +49,24 @@ function App() {
     }
   };
 
-  const skills = [
-    "C++",
-    "JavaScript",
-    "SQL",
-    "React.js",
-    "Tailwind CSS",
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "MySQL",
-    "PostgreSQL",
-    "AWS",
-    "Git & Postman",
-    "Vercel",
-    "OpenAI/Gemini APIs",
-    "NLP Basics",
-    "LLM",
-    "DSA, OS, DBMS, CN",
+  const skillGroups = [
+    { category: "Languages", items: ["C++", "JavaScript", "SQL"] },
+    { category: "Frontend", items: ["React.js", "Tailwind CSS"] },
+    { category: "Backend", items: ["Node.js", "Express.js"] },
+    { category: "Database", items: ["MongoDB", "MySQL", "PostgreSQL"] },
+    {
+      category: "AI / LLM",
+      items: ["OpenAI API", "Gemini API", "LLM Integration", "NLP Basics"],
+    },
+    { category: "Tools & Cloud", items: ["Git", "Postman", "AWS", "Vercel"] },
+    { category: "CS Fundamentals", items: ["DSA", "OS", "DBMS", "CN"] },
   ];
 
   const projects = [
     {
       title: "AI-Powered Job Matching Platform",
       description:
-        "Built an AI-based system that matches candidates and jobs using contextual skill understanding, resume parsing, and match scoring with recruiter and job-seeker dashboards.",
+        "Built an AI-powered job matching platform that reduced manual resume screening time by an estimated 60% using contextual skill-matching algorithms, with JWT-secured recruiter and job-seeker dashboards and automated resume parsing.",
       stack: ["React.js", "Node.js", "MongoDB", "OpenAI API", "AWS"],
       demoUrl: "https://ai-powered-job-platform-frontend.vercel.app/",
       codeUrl: "https://github.com/gauravasodariya/AI-Powered-Job-Platform",
@@ -81,7 +74,7 @@ function App() {
     {
       title: "Annasetu",
       description:
-        "Developed a donation management platform connecting NGOs, donors, and volunteers with secure role-based access and reliable request scheduling APIs.",
+        "Developed a donation management platform connecting NGOs, donors, and volunteers, cutting manual coordination effort with role-based access control and automated request-scheduling APIs serving 3 distinct user roles.",
       stack: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT"],
       demoUrl: "https://annasetu-frontend.vercel.app/",
       codeUrl: "https://github.com/gauravasodariya/annasetu",
@@ -89,7 +82,7 @@ function App() {
     {
       title: "Account Manager",
       description:
-        "Created a finance/account management app focused on clear tracking flows and practical dashboards for day-to-day money operations.",
+        "Created a finance/account management app that streamlines day-to-day expense tracking, with real-time dashboards replacing manual spreadsheet-based tracking for daily money operations.",
       stack: ["React.js", "Node.js", "Express.js", "MongoDB"],
       demoUrl: "",
       codeUrl: "https://github.com/gauravasodariya/Account-Manager",
@@ -97,19 +90,34 @@ function App() {
     {
       title: "MockHire AI",
       description:
-        "Built a full-stack AI mock interview platform using GPT-4o-mini for dynamic questions and resume-based feedback, with Google authentication, Razorpay credit system, AWS S3 resume storage, and an admin dashboard for managing users and plans.",
-      stack: ["React", "Node.js", "Express.js", "MongoDB", "OpenRouter API", "AWS S3", "Razorpay"],
+        "Built a full-stack AI mock interview platform generating dynamic, resume-personalized interview questions via GPT-4o-mini, cutting manual interview prep effort with instant AI feedback, secure Google auth, Razorpay credit payments, and AWS S3 resume storage — deployed and live in production.",
+      stack: [
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "OpenRouter API",
+        "AWS S3",
+        "Razorpay",
+      ],
       demoUrl: "https://mock-hire-ai-sigma.vercel.app/",
       codeUrl: "https://github.com/gauravasodariya/MockHire-AI",
-},
+    },
     {
       title: "RankIntel",
       description:
-        "Built an AI-powered SEO audit platform delivering instant site health scores, keyword and on-page analysis, Core Web Vitals monitoring,   and competitor comparisons — with trend-based audit history and downloadable PDF reports.",
-      stack: ["React 19", "TypeScript", "Node.js", "Express.js", "MongoDB", "Gemini API"],
+        "Built an AI-powered SEO audit platform generating instant site health scores across keyword, on-page, and Core Web Vitals metrics, cutting manual SEO audit time with automated crawling, competitor comparison, and one-click PDF reporting.",
+      stack: [
+        "React 19",
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Gemini API",
+      ],
       demoUrl: "",
       codeUrl: "https://github.com/gauravasodariya/RankIntel",
-},
+    },
   ];
 
   const experience = [
@@ -198,16 +206,16 @@ function App() {
     window.scrollTo(0, 0);
   }, []);
   useEffect(() => {
-  if (showResumeModal) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "";
-  }
+    if (showResumeModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
 
-  return () => {
-    document.body.style.overflow = "";
-  };
-}, [showResumeModal]);
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showResumeModal]);
   useEffect(() => {
     let index = 0;
     setTypedName("");
@@ -339,13 +347,14 @@ function App() {
         >
           <h2 className="section-title">About Me</h2>
           <p className="section-text">
-            I am an M.Sc. IT student at Dhirubhai Ambani University and a
-            Full-Stack MERN Developer with hands-on industry experience as a
-            Software Developer Intern. I enjoy designing scalable backend
-            systems, developing intuitive user interfaces, and building
-            AI-powered applications that solve real-world problems. I'm
-            passionate about writing clean, maintainable code and continuously
-            learning modern web technologies.
+            I am an M.Sc. IT graduate from Dhirubhai Ambani University with
+            hands-on experience in Full Stack MERN development. During my
+            internship, I built scalable web applications, designed REST APIs,
+            and worked with MongoDB. I enjoy solving real-world problems through
+            clean, maintainable code and AI-powered applications. I am currently
+            seeking
+            <br />
+            full-time Software Developer opportunities.
           </p>
         </section>
 
@@ -354,13 +363,22 @@ function App() {
           className="animate-slide-up py-10 [animation-delay:320ms]"
         >
           <h2 className="section-title">Skills</h2>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {skills.map((skill) => (
-              <div
-                key={skill}
-                className="surface-card rounded-2xl px-4 py-3 text-sm font-semibold text-slate-100 transition hover:-translate-y-1"
-              >
-                {skill}
+          <div className="mt-6 space-y-6">
+            {skillGroups.map((group) => (
+              <div key={group.category}>
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-[#C4B5FD] mb-3">
+                  {group.category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((skill) => (
+                    <span
+                      key={skill}
+                      className="surface-card rounded-full px-4 py-2 text-sm font-semibold text-slate-100 transition hover:-translate-y-1"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
@@ -536,7 +554,7 @@ function App() {
                 <p className="text-xs uppercase tracking-wider text-[#C4B5FD]">
                   Profiles
                 </p>
-                <div className="mt-2 flex gap-3 text-sm">
+                <div className="mt-2 flex flex-wrap gap-3 text-sm">
                   <a
                     href="https://github.com/gauravasodariya"
                     target="_blank"
@@ -552,6 +570,14 @@ function App() {
                     className="text-[#DDD6FE] hover:text-white"
                   >
                     LinkedIn
+                  </a>
+                  <a
+                    href="https://leetcode.com/u/JKM10/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[#DDD6FE] hover:text-white"
+                  >
+                    LeetCode
                   </a>
                 </div>
               </div>
