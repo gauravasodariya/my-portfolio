@@ -285,7 +285,7 @@ function App() {
           className="grid items-center gap-10 py-8 md:grid-cols-2 md:py-12"
         >
           <div className="animate-slide-up [animation-delay:100ms]">
-            <p className="mb-3 inline-flex rounded-full border border-[#A855F7]/40 bg-[#A855F7]/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#C4B5FD]">
+            <p className="mb-4 inline-flex items-center rounded-full border border-violet-400/40 bg-gradient-to-r from-violet-600/20 to-fuchsia-600/20 px-5 py-2 text-sm font-bold tracking-wide text-violet-200 shadow-lg backdrop-blur-md">
               Full-Stack AI Engineer
             </p>
             <h1 className="text-[1.65rem] font-black leading-tight sm:text-3xl md:text-3xl">
