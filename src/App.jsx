@@ -572,12 +572,20 @@ function App() {
                     LinkedIn
                   </a>
                   <a
-                    href="https://leetcode.com/u/JKM10/"
+                    href="https://leetcode.com/u/JKM10"
                     target="_blank"
                     rel="noreferrer"
                     className="text-[#DDD6FE] hover:text-white"
                   >
                     LeetCode
+                  </a>
+                  <a
+                    href="https://www.geeksforgeeks.org/profile/gauravasovqbk?tab=activity"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[#DDD6FE] hover:text-white"
+                  >
+                    GeeksforGeeks
                   </a>
                 </div>
               </div>
